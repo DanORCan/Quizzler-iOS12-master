@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         
         checkAnswer()
         questionNumber += 1
-        questionLabel.text = allQuestions.list[questionNumber].questionText
+        nextQuestion()
   
     }
     
@@ -51,6 +51,15 @@ class ViewController: UIViewController {
     
 
     func nextQuestion() {
+        
+        if questionNumber <= allQuestions.list.count-1 {
+            print("Question Number is \(questionNumber) and Question Index-1 is \(allQuestions.list.count-1)")
+            questionLabel.text = allQuestions.list[questionNumber].questionText
+        } else {
+            print("End of Quiz")
+            questionNumber = 0
+        }
+        
         
     }
     
