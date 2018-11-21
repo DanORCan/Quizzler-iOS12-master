@@ -24,8 +24,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstQuestion = allQuestions.list[0]
-        questionLabel.text = firstQuestion.questionText
+//        let firstQuestion = allQuestions.list[0]
+//        questionLabel.text = firstQuestion.questionText
+        
+        nextQuestion()
         
     }
 
