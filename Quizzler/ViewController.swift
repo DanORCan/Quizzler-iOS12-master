@@ -50,12 +50,17 @@ class ViewController: UIViewController {
     func updateUI() {
         
         scoreLabel.text = "Total Score: \(score)"
-      //  progressLabel.text = "Question \(questionNumber + 1) of \(allQuestions.list.count)"
-        progressLabel.text = "\(questionNumber + 1) / 13"
+        
+        if questionNumber + 1 > allQuestions.list.count {
+            progressLabel.text = " - / \(allQuestions.list.count) "
+        } else {
+            progressLabel.text = "\(questionNumber + 1) / \(allQuestions.list.count)"
+        }
+        
+        
         
         progressBar.frame.size.width = (view.frame.size.width / CGFloat(allQuestions.list.count) ) * CGFloat(questionNumber + 1)
         
-        //progressBar.frame.size.width = (view.frame.size.width / 13 ) * CGFloat(questionNumber + 1)
 
     }
     
@@ -67,6 +72,8 @@ class ViewController: UIViewController {
             questionLabel.text = allQuestions.list[questionNumber].questionText
             updateUI()
         } else {
+            
+            updateUI()
             
             let alert = UIAlertController(title: "Awesome", message: "You have finished all the questions, do you want to start over?", preferredStyle: .alert)
             
